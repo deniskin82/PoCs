@@ -2,7 +2,8 @@ FROM python:3.10.10-alpine3.17
 
 LABEL maintainer="deniskin82"
 
-RUN apk add --no-cache \
+RUN ln -s /lib/libc.so.6 /usr/lib/libresolv.so.2 \
+    && apk add --no-cache \
     ansible \
     bash \
     curl \
@@ -12,6 +13,7 @@ RUN apk add --no-cache \
     shellcheck \
     doas \
     gcompat \
+    libc6-compat \
     tar \
     unzip \
     && rm -rf /var/cache/apk/*
