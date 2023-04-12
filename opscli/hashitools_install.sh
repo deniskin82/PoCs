@@ -13,6 +13,5 @@ esac;
 HASHI_URL=$(curl -s "https://api.releases.hashicorp.com/v1/releases/${HASHI_APP}/${APP_VERSION}" | jq -Mr ".builds[] | select(.arch == \"${ARCH}\" and .os == \"${OS}\") | .url")
 
 curl -s ${HASHI_URL} -o "/tmp/${HASHI_APP}.zip" \
-    && unzip -q -d /tmp/ /tmp/${HASHI_APP}.zip \
-    && mv /tmp/${HASHI_APP} /usr/local/bin/${HASHI_APP} \
+    && unzip -q -d /usr/local/bin/ /tmp/${HASHI_APP}.zip ${HASHI_APP} \
     && rm -fv /tmp/${HASHI_APP}.zip \
