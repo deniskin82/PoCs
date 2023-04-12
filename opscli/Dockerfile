@@ -24,6 +24,7 @@ RUN /tmp/hashitools_install.sh packer && \
     /tmp/hashitools_install.sh consul && \
     /tmp/hashitools_install.sh nomad && \
     /tmp/hashitools_install.sh terraform && \
+    /tmp/hashitools_install.sh vault && \
     rm -frv /tmp/*
 
 WORKDIR /usr/local/bin
